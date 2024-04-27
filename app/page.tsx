@@ -1,12 +1,16 @@
 "use client";
 
-import React from 'react';
+import React, {useState} from 'react';
 import {Entry} from "@/components/Entry";
 import {Form} from "@/components/ui/form"
 import {Button} from "@/components/ui/button"
 import {useForm} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
+import Result from "@/components/Result";
+import {
+    AlertDialog,
+} from "@/components/ui/alert-dialog"
 
 const FormSchema = z.object({
     "OptimisationCC (DS)": z.number().min(0).max(20),
@@ -132,7 +136,9 @@ const Page = () => {
         "English": 1,
         "Droit": 1
     };
-
+    const [result, setResult] = useState<number>(0);
+    const [showDialog, setShowDialog] = useState(false);
+    let overallAverage = 0;
     function calculate() {
         const values: {
             [key: string]: number | undefined
@@ -153,8 +159,14 @@ const Page = () => {
                 }
             }
         }
-        const overallAverage = sum / totalCoefficient;
-        console.log(`The overall average is ${overallAverage.toFixed(2)}`);
+        overallAverage = sum / totalCoefficient;
+        setResult(overallAverage);
+        setShowDialog(true);
+    }
+
+
+    function closeDialog() {
+        setShowDialog(false);
     }
 
     return (
@@ -163,7 +175,8 @@ const Page = () => {
             <div className={"z-50 w-full lg:w-3/5 lg:mx-auto lg:py-7 md:w-3/6 md:mx-auto md:py-7"}>
                 <div className={"flex justify-between p-3"}>
                     <h1 className={"font-bold font-mono text-xl pt-0.5"}>Hello Engineers</h1>
-                    <p className={"font-normal text-xs border-[1px] rounded-lg px-2 py-2 lg:py-1 lg:text-sm"}>Remember to sanity check
+                    <p className={"font-normal text-xs border-[1px] rounded-lg px-2 py-2 lg:py-1 lg:text-sm"}>Remember
+                        to sanity check
                         often!</p>
                 </div>
                 <main className={"my-3 lg:my-14"}>
@@ -184,7 +197,7 @@ const Page = () => {
                                 <Entry form={form} subjectName={"Droit"} lab={false}/>
                             </form>
                             <div className={"flex center w-full justify-center py-6"} onClick={calculate}>
-                                <Button>Calculate</Button>
+                                <Result  form={form} average={result}/>
                             </div>
                         </Form>
                     </div>
