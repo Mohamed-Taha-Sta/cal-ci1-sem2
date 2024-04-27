@@ -159,7 +159,7 @@ const Page = () => {
 
     return (
         <div
-            className="text-white absolute top-0 z-[-2] h-screen w-screen bg-black bg-[radial-gradient(#111121_1px,#01000D_1px)] bg-[size:20px_20px]">
+            className="text-white absolute top-0 z-[-2] min-h-screen w-screen bg-black bg-[radial-gradient(#111121_1px,#01000D_1px)] bg-[size:20px_20px]">
             <div className={"z-50 w-full lg:w-3/5 lg:mx-auto lg:py-7 md:w-3/6 md:mx-auto md:py-7"}>
                 <div className={"flex justify-between p-3"}>
                     <h1 className={"font-bold font-mono text-xl pt-0.5"}>Hello Engineers</h1>
