@@ -8,9 +8,7 @@ import {useForm} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import Result from "@/components/Result";
-import {
-    AlertDialog,
-} from "@/components/ui/alert-dialog"
+import Credit from "@/components/Credit";
 
 const FormSchema = z.object({
     "OptimisationCC (DS)": z.number().min(0).max(20),
@@ -174,7 +172,7 @@ const Page = () => {
             className="text-white absolute top-0 z-[-2] min-h-screen w-screen bg-black bg-[radial-gradient(#111121_1px,#01000D_1px)] bg-[size:20px_20px]">
             <div className={"z-50 w-full lg:w-3/5 lg:mx-auto lg:py-7 md:w-3/6 md:mx-auto md:py-7"}>
                 <div className={"flex justify-between p-3"}>
-                    <h1 className={"font-bold font-mono text-xl pt-0.5"}>Hello Engineers</h1>
+                    <h1 className={"font-bold font-mono text-xl pt-0.5"}>Hello Engineers!</h1>
                     <p className={"font-normal text-xs border-[1px] rounded-lg px-2 py-2 lg:py-1 lg:text-sm"}>Remember
                         to sanity check
                         often!</p>
@@ -203,6 +201,7 @@ const Page = () => {
                     </div>
                 </main>
             </div>
+            <Credit/>
         </div>
     );
 };
