@@ -163,7 +163,7 @@ const Page = () => {
             <div className={"z-50 w-full lg:w-3/5 lg:mx-auto lg:py-7 md:w-3/6 md:mx-auto md:py-7"}>
                 <div className={"flex justify-between p-3"}>
                     <h1 className={"font-bold font-mono text-xl pt-0.5"}>Hello Engineers</h1>
-                    <p className={"font-normal text-sm border-[1px] rounded-lg px-2 py-1"}>Remember to sanity check
+                    <p className={"font-normal text-xs border-[1px] rounded-lg px-2 py-2 lg:py-1 lg:text-sm"}>Remember to sanity check
                         often!</p>
                 </div>
                 <main className={"my-3 lg:my-14"}>
