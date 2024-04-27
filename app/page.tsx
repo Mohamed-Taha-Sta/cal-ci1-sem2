@@ -187,6 +187,7 @@ const Page = () => {
                                 <Entry form={form} subjectName={"Web Services"} lab={true}/>
                                 <Entry form={form} subjectName={"JEE"} lab={true}/>
                                 <Entry form={form} subjectName={"SED"} lab={false}/>
+                                <Entry form={form} subjectName={"Test"} lab={true}/>
                                 <Entry form={form} subjectName={"Prologue"} lab={false}/>
                                 <Entry form={form} subjectName={"AI"} lab={false}/>
                                 <Entry form={form} subjectName={"Semantics"} lab={false}/>
