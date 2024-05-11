@@ -1,5 +1,5 @@
 ## Freshman Year Average Calculator - Semester 2
-
+I made this little exercice to help my collegues and I calculate our averages, to get a good grasp of what we should expect.
 This is a project developed using TypeScript, JavaScript, npm, and React. It's a web application that calculates the overall average of different subjects based on their coefficients.
 
 ## Getting Started
