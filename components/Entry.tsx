@@ -37,33 +37,6 @@ function calculateAverage(cc: number | null, lab: number | null, exam: number | 
 
 export function Entry({form, subjectName, lab}: EntryProps) {
 
-    // const FormSchema = z.object({
-    //     [`${subjectName}CC (DS)`]: z.number().min(0, {
-    //         message: "Value must be at least 0.",
-    //     }).max(20, {
-    //         message: "Value must be at most 20.",
-    //     }),
-    //     [`${subjectName}Lab (TP)`]: lab ? z.number().min(0, {
-    //         message: "Value must be at least 0.",
-    //     }).max(20, {
-    //         message: "Value must be at most 20.",
-    //     }) : z.null(),
-    //     [`${subjectName}Final Exam`]: z.number().min(0, {
-    //         message: "Value must be at least 0.",
-    //     }).max(20, {
-    //         message: "Value must be at most 20.",
-    //     }),
-    // })
-
-    // const form = useForm<z.infer<typeof FormSchema>>({
-    //     resolver: zodResolver(FormSchema),
-    //     defaultValues: {
-    //         [`${subjectName}CC (DS)`]: null,
-    //         [`${subjectName}Lab (TP)`]: lab ? null : null,
-    //         [`${subjectName}Final Exam`]: null,
-    //     },
-    // })
-
     const {watch} = form;
     const ccValue = watch(`${subjectName}CC (DS)`);
     const labValue = lab ? watch(`${subjectName}Lab (TP)`) : null;
@@ -80,8 +53,8 @@ export function Entry({form, subjectName, lab}: EntryProps) {
     }
 
     return (
-        <div className={"space-y-2 my-3 lg:w-1/4"}>
-            <div className={"flex justify-between"}>
+        <div className={"space-y-2 my-2 lg:w-1/5 "}>
+            <div className={"flex justify-between "}>
                 <label className={"ps-3"}>{subjectName}</label>
                 <label
                     className={"text-gray-400 text-sm pt-1 pe-3"}>{average || average ? average.toFixed(2) : ""}</label>
