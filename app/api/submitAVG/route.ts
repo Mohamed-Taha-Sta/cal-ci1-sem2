@@ -17,13 +17,8 @@ export const POST = async (req: any) => {
         await connectToDB();
         const response = await fetch(process.env.NEXTAUTH_URL+"/api/ip",{method: "GET"});
         const ip = await response.text();
-        console.log("IP HEEREEE",ip)
         const {avg} = await req.json();
-        const user = await User.findOneAndUpdate(
-            {ip},
-            {$set: {avg: avg}},
-            {new: true, upsert: true}
-        );
+        const user = await User.create({ip, avg});
         return new Response("Entry created", {status: 201})
     } catch (err) {
         console.log(err);
