@@ -190,8 +190,8 @@ const Calculate = () => {
                     <Entry form={form} subjectName={"English"} lab={false}/>
                     <Entry form={form} subjectName={"Droit"} lab={false}/>
                 </form>
-                <div className={"flex center w-full justify-center py-6"} onClick={calculate}>
-                    <Result form={form} average={result}/>
+                <div className={"flex center w-full justify-center py-6"} >
+                    <Result form={form} average={result}  func={calculate} />
                 </div>
             </Form>
         </div>

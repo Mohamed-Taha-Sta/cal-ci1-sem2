@@ -16,7 +16,7 @@ type FieldInputProps = {
     average: number;
 }
 
-const Result = ({form, average}: FieldInputProps) => {
+const Result = ({form, average, func}: FieldInputProps & any) => {
     if (isNaN(average)) {
         return <></>
     }
@@ -41,7 +41,7 @@ const Result = ({form, average}: FieldInputProps) => {
     return (
         <div >
             <AlertDialog>
-                <AlertDialogTrigger disabled={areFieldsEmpty} className="disabled:bg-gray-900 disabled:hover:bg-gray-900 px-4 py-3 rounded-lg transition-all bg-blue-950 text-primary-foreground hover:bg-primary">Calculate</AlertDialogTrigger>
+                <AlertDialogTrigger disabled={areFieldsEmpty} className="disabled:bg-gray-900 disabled:hover:bg-gray-900 px-4 py-3 rounded-lg transition-all bg-blue-950 text-primary-foreground hover:bg-primary" onClick={func}>Calculate</AlertDialogTrigger>
                 <AlertDialogContent className={"bg-zinc-900 text-white border-2 rounded-lg border-neutral-700"}>
                     <AlertDialogHeader>
                         <AlertDialogTitle>Annnnnnnnnd moyennek is: {average.toFixed(2)}</AlertDialogTitle>
