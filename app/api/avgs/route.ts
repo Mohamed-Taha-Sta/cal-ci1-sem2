@@ -1,7 +1,7 @@
 import connectToDB from "@/utils/databse";
 import User from "@/models/user";
 
-
+export const dynamic = 'force-dynamic';
 export const GET = async () => {
     try {
         await connectToDB()
