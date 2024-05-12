@@ -58,7 +58,7 @@ const leaderBoardPage = () => {
     const fetchCurrentIp = async () => {
         const response = await fetch('/api/ip', {method: 'GET'});
         const dataIP = await response.json();
-        console.log(dataIP)
+        // console.log(dataIP)
         setCurrentIp(dataIP);
     }
 

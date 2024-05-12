@@ -144,7 +144,8 @@ const Calculate = () => {
         for (const key in values) {
             if (key.startsWith("Average")) {
                 let value: number | undefined = Math.min(values[key] as number,20);
-                if (values[key] === null || values[key] === 0) {
+                value = Math.max(value,0)
+                if (values[key] === null || values[key] === 0 ) {
                     value = 0;
                 }
                 if (value !== null && !isNaN(value as number)) {
@@ -152,6 +153,7 @@ const Calculate = () => {
                     sum += Number(value) * coefficients[subjectName];
                     totalCoefficient += coefficients[subjectName];
                 }
+
             }
         }
         overallAverage = sum / totalCoefficient;
