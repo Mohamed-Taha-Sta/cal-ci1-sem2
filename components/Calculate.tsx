@@ -52,7 +52,7 @@ const FormSchema = z.object({
 
 const Calculate = () => {
 
-        const form = useForm<z.infer<typeof FormSchema>>({
+    const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
             "OptimisationCC (DS)": undefined,
@@ -134,7 +134,7 @@ const Calculate = () => {
     const [showDialog, setShowDialog] = useState(false);
     let overallAverage = 0;
 
-    function calculate() {
+    async function calculate() {
         const values: {
             [key: string]: number | undefined
         } = form.getValues();
@@ -156,6 +156,13 @@ const Calculate = () => {
         }
         overallAverage = sum / totalCoefficient;
         setResult(overallAverage);
+        const response = await fetch('/api/submitAVG',
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    avg: overallAverage,
+                })
+            });
         setShowDialog(true);
     }
 
