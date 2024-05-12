@@ -45,7 +45,8 @@ export function Entry({form, subjectName, lab}: EntryProps) {
     // console.log(form.getValues())
     // console.log(ccValue, labValue, examValue);
 
-    const average = Math.min(calculateAverage(ccValue, lab ? labValue : null, examValue),20);
+    let average = Math.min(calculateAverage(ccValue, lab ? labValue : null, examValue),20);
+    average = Math.max(average,0)
     if (isNaN(average)) {
     } else {
         // console.log(average);
@@ -57,7 +58,7 @@ export function Entry({form, subjectName, lab}: EntryProps) {
             <div className={"flex justify-between "}>
                 <label className={"ps-3"}>{subjectName}</label>
                 <label
-                    className={"text-gray-400 text-sm pt-1 pe-3"}>{average || average ? average.toFixed(2) : ""}</label>
+                    className={"text-gray-400 text-sm pt-1 pe-3"}>{average>=0 || average ? average.toFixed(2) : ""}</label>
             </div>
             <div className={"space-y-2 px-3 lg:w-full "}>
                 <FieldInput  form={form} SubjectName={subjectName} ExamType={"CC (DS)"}/>

@@ -143,8 +143,8 @@ const Calculate = () => {
 
         for (const key in values) {
             if (key.startsWith("Average")) {
-                let value: number | undefined = Math.min(values[key] as number,20);
-                value = Math.max(values[key] as number,0)
+                let value: number | undefined = Math.min(values[key] as number, 20);
+                value = Math.max(values[key] as number, 0)
                 if (values[key] === null || values[key] === 0 ) {
                     value = 0;
                 }
@@ -192,8 +192,8 @@ const Calculate = () => {
                     <Entry form={form} subjectName={"English"} lab={false}/>
                     <Entry form={form} subjectName={"Droit"} lab={false}/>
                 </form>
-                <div className={"flex center w-full justify-center py-6"} >
-                    <Result form={form} average={result}  func={calculate} />
+                <div className={"flex center w-full justify-center py-6"}>
+                    <Result form={form} average={result} func={calculate}/>
                 </div>
             </Form>
         </div>
