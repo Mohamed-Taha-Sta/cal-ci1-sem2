@@ -144,7 +144,7 @@ const Calculate = () => {
         for (const key in values) {
             if (key.startsWith("Average")) {
                 let value: number | undefined = Math.min(values[key] as number,20);
-                value = Math.max(value,0)
+                value = Math.max(values[key] as number,0)
                 if (values[key] === null || values[key] === 0 ) {
                     value = 0;
                 }
