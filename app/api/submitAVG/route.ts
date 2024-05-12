@@ -12,14 +12,10 @@ interface RequestWithBody extends NextApiRequest {
     };
 }
 
-const getClientIp = (req: NextApiRequest): string => {
-    return requestIp.getClientIp(req)
-};
-
 export const POST = async (req: any) => {
     try {
         await connectToDB();
-        const ip = getClientIp(req);
+        const ip = await fetch("/api/ip",{method: "GET"});
         const {avg} = await req.json();
         const user = await User.findOneAndUpdate(
             {ip},
