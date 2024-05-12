@@ -4,7 +4,14 @@ import requestIp from 'request-ip'
 import {NextRequest} from "next/server";
 
 export const dynamic = 'force-dynamic';
-export function GET(req: NextRequest & { url: string }) {
-    const ip = (req.headers.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0]
-    return new Response(JSON.stringify(ip), {status: 200})
+
+export function GET(req: any & { url: string }) {
+    // @ts-ignore
+    const forwarded = req.headers["x-forwarded-for"]
+    const ip = forwarded ? forwarded.split(/, /)[0] : req.socket.remoteAddress
+    return {
+        props: {
+            ip,
+        },
+    }
 }

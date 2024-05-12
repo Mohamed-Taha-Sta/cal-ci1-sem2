@@ -22,6 +22,7 @@ export const POST = async (req: any) => {
             {$set: {avg: avg}},
             {new: true, upsert: true}
         );
+        console.log("IP HEEREEE",ip)
         return new Response("Entry created", {status: 201})
     } catch (err) {
         console.log(err);
