@@ -63,7 +63,8 @@ const leaderBoardPage = () => {
     }
 
     useEffect(() => {
-        fetchCurrentIp()
+        // fetchCurrentIp()
+        setCurrentIp("0.0.0.0")
         fetchUsers()
     }, []);
 
