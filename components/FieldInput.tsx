@@ -22,7 +22,7 @@ const FieldInput = ({form,SubjectName,ExamType}: FieldInputProps  ) => {
                 render={() => (
                     <FormItem>
                         <FormControl>
-                            <Input className={"bg-zinc-900 dark:bg-white border-[#333333] border-[2px] placeholder-neutral-400 placeholder-opacity-70"} placeholder={ExamType} {...field} />
+                            <Input min={0} max={20} type="number" className={"[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none bg-zinc-900 dark:bg-white border-[#333333] border-[2px] placeholder-neutral-400 placeholder-opacity-70"} placeholder={ExamType} {...field} />
                         </FormControl>
                         <FormMessage/>
                     </FormItem>

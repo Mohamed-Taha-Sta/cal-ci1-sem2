@@ -139,18 +139,18 @@ const Calculate = () => {
             [key: string]: number | undefined
         } = form.getValues();
         let sum = 0;
-        let totalCoefficient = 0; // Reset totalCoefficient
+        let totalCoefficient = 0;
 
         for (const key in values) {
             if (key.startsWith("Average")) {
-                let value: number | undefined = values[key];
+                let value: number | undefined = Math.min(values[key] as number,20);
                 if (values[key] === null || values[key] === 0) {
                     value = 0;
                 }
                 if (value !== null && !isNaN(value as number)) {
                     const subjectName: SubjectName = key.slice(7) as SubjectName;
                     sum += Number(value) * coefficients[subjectName];
-                    totalCoefficient += coefficients[subjectName]; // Add the coefficient of the current subject to totalCoefficient
+                    totalCoefficient += coefficients[subjectName];
                 }
             }
         }

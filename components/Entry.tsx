@@ -45,10 +45,10 @@ export function Entry({form, subjectName, lab}: EntryProps) {
     // console.log(form.getValues())
     // console.log(ccValue, labValue, examValue);
 
-    const average = calculateAverage(ccValue, lab ? labValue : null, examValue);
+    const average = Math.min(calculateAverage(ccValue, lab ? labValue : null, examValue),20);
     if (isNaN(average)) {
     } else {
-        console.log(average);
+        // console.log(average);
         form.setValue(`Average${subjectName}`, average.toFixed(2));
     }
 
@@ -60,7 +60,7 @@ export function Entry({form, subjectName, lab}: EntryProps) {
                     className={"text-gray-400 text-sm pt-1 pe-3"}>{average || average ? average.toFixed(2) : ""}</label>
             </div>
             <div className={"space-y-2 px-3 lg:w-full "}>
-                <FieldInput form={form} SubjectName={subjectName} ExamType={"CC (DS)"}/>
+                <FieldInput  form={form} SubjectName={subjectName} ExamType={"CC (DS)"}/>
                 {lab ? (<FieldInput form={form} SubjectName={subjectName} ExamType={"Lab (TP)"}/>) : <></>}
                 <FieldInput form={form} SubjectName={subjectName} ExamType={"Final Exam"}/>
             </div>
