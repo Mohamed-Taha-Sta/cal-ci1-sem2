@@ -22,7 +22,7 @@ export const POST = async (req: any) => {
         const user = await User.create({ip, avg});
         return new Response("Entry created", {status: 201})
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         return new Response("Failed to create new average entry", {status: 500});
     }
 }
