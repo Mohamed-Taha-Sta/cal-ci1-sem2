@@ -15,7 +15,7 @@ const RankBox = ({name, average, rank, isYou, emoji}: RankBoxProps) => {
                 <div className={"grid grid-cols-4  pe-6"}>
                     <div className={"text-neutral-400 flex  justify-between align-center "}>#{rank}</div>
                     <div className={"col-start-2"}>{name}</div>
-                    {isYou ? <div
+                    {false ? <div
                         className={" bg-[#011D81] bg-opacity-40 border-2 rounded border-[#121957]  text-xs flex items-center max-w-9 px-1.5 mx-2"}>You</div> : ''}
                     <div className={"col-start-4"}>{average}</div>
                     <div className={"col-start-5 ps-6"}>{emoji}</div>
