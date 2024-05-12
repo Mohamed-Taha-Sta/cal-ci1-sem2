@@ -15,14 +15,15 @@ interface RequestWithBody extends NextApiRequest {
 export const POST = async (req: any) => {
     try {
         await connectToDB();
-        const ip = await fetch("/api/ip",{method: "GET"});
+        const response = await fetch(process.env.NEXTAUTH_URL+"/api/ip",{method: "GET"});
+        const ip = await response.text();
+        console.log("IP HEEREEE",ip)
         const {avg} = await req.json();
         const user = await User.findOneAndUpdate(
             {ip},
             {$set: {avg: avg}},
             {new: true, upsert: true}
         );
-        console.log("IP HEEREEE",ip)
         return new Response("Entry created", {status: 201})
     } catch (err) {
         console.log(err);
